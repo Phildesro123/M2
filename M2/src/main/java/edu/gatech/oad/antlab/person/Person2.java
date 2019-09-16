@@ -19,6 +19,7 @@ public class Person2 {
 	 public Person2(String pname) {
 	   name = pname;
 	 }
+	
 	/**
 	 * This method should take the string
 	 * input and return its characters in
@@ -26,12 +27,23 @@ public class Person2 {
 	 * given "gtg123b" it should return
 	 * something like "g3tb1g2".
 	 *
+	 *  To do this, I made it swap randomly, so that it
+	 *  can maintain the same characters and still be randomized.
+	 *
 	 * @param input the string to be modified
 	 * @return the modified string
 	 */
 	private String calc(String input) {
-	  //Person 2 put your implementation here
-	  return null;
+	  String toReturn = input;
+	  String temp;
+	  int j = rand.nextInt(input.length());
+	  for (int i = 0; i < input.length(); i++) {
+	  	temp = toReturn[i];
+	  	toReturn[i] = toReturn[j];
+	  	toReturn[j] = temp;
+	  	j = rand.nextInt(input.length());
+	  }
+	  return toReturn;
 	}
 	/**
 	 * Return a string rep of this object
